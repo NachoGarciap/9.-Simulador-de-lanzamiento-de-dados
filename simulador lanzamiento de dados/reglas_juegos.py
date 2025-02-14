@@ -25,3 +25,24 @@ class Reglas_juego:
         """
         print(reglas)
 
+    def reglas_mafia(self):
+        reglas = '''🎲🎭 Bienvenidos al juego de dados Mafia 🎭🎲
+
+        📜 Qué necesitas:
+        - 5 dados de 6 caras por cada jugador
+        - Boli y papel para anotar puntuaciones
+        - Un tablero (opcional)
+        
+        🎲 Cómo jugar:
+        1️⃣ El jugador inicial tirará los 5 dados.
+        2️⃣ Si saca un **1**, ese dado se elimina del juego y pasa el turno al siguiente jugador.
+        3️⃣ Si saca un **6**, deberá dar todos los 6 obtenidos al siguiente jugador, quien acumulará más dados.
+        
+        🏆 Quién gana:
+        - El jugador que **se quede sin dados** primero.
+        - O el jugador con menos dados cuando terminen las rondas acordadas.
+        
+        ¡Que comience el juego! 🎲🔥
+        """)
+        '''
+        print(reglas)

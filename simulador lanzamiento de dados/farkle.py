@@ -9,8 +9,13 @@ class Farkle:
     def __init__(self):
         print('🎲----- Bienvenidos al juego Farkle -----🎲')
         self.dado = [1, 2, 3, 4, 5, 6]
-        self.max_puntuacion = 10000
-        self.puntos_totales = 0
+        self.max_puntuacion = 1000
+        # self.puntos_totales = 0
+        # Puntos de lso jugadores
+        self.puntos_jugador1 = 0
+        self.puntos_jugador2 = 0
+        # Turnos de los jugadores turno 1 = jugador 1
+        self.turno = 1
 
     def mostrar_menu(self):
         while True:
@@ -19,7 +24,11 @@ class Farkle:
             print('2. Jugar')
             print('3. Salir')
 
-            opcion = int(input("Elige un modo de juego: "))
+            try:
+                opcion = int(input("Elige un modo de juego: "))
+            except ValueError:
+                print('Introduce una opcion valida, por favor.')
+                continue #asi vuelve a iniciar el try hasta que la opcion sea correcta
 
             if opcion == 1:
                 print('----- Recordatorio de las reglas y los puntos! -----')
@@ -92,25 +101,47 @@ class Farkle:
         return puntos_ronda
 
     def jugar(self):
-        while self.puntos_totales < self.max_puntuacion:
-            print(f'Puntos totales: {self.puntos_totales}')
-            puntos_ronda = self.calcular_puntos()
-            self.puntos_totales += puntos_ronda
+        while self.puntos_jugador1 < self.max_puntuacion and self.puntos_jugador2 < self.max_puntuacion:
+            print(f"\nTurno del Jugador {self.turno}")
+            if self.turno == 1:
+                print(f'Puntos totales jugador 1: {self.puntos_jugador1}')
+            else:
+                print(f'Puntos totales jugador 2: {self.puntos_jugador2}')
+
+            puntos_ronda = self.calcular_puntos()  # Juega el turno actual
+
+            # Diferentes turnos de los jugadores
+            if self.turno == 1:
+                self.puntos_jugador1 += puntos_ronda
+            else:
+                self.puntos_jugador2 += puntos_ronda
 
             # Comprobar si el jugador ha alcanzado los 10,000 puntos
-            if self.puntos_totales == self.max_puntuacion:
-                print(f'Felicidades has alcanzado {self.puntos_totales}, has ganado!!!')
+            if self.puntos_jugador1 >= self.max_puntuacion:
+                print(f'\n🎉 ¡Jugador 1 ha ganado con {self.puntos_jugador1} puntos! 🎉')
+                break
+            elif self.puntos_jugador2 >= self.max_puntuacion:
+                print(f'\n🎉 ¡Jugador 2 ha ganado con {self.puntos_jugador2} puntos! 🎉')
                 break
 
-            # Preguntar si desea seguir jugando
+            # Alternar turno
+            if self.turno == 1:
+                self.turno = 2
+            else:
+                self.turno = 1
+
+            # Preguntar si el jugador quiere seguir
             seguir = input("¿Quieres seguir jugando? (s/n): ").lower()
             if seguir != 's':
-                print(f"Gracias por jugar. Tu puntaje final es {self.puntos_totales}. ¡Hasta luego!")
+                print(
+                    f"\nGracias por jugar. Puntuaciones finales:\nJugador 1: {self.puntos_jugador1} puntos\nJugador 2: {self.puntos_jugador2} puntos")
                 break
+
 
 
 # Prueba
 jugar = Farkle()
 reglas = Reglas_juego()
+
 # Muestra el menu antes de empezar el juego
 jugar.mostrar_menu()

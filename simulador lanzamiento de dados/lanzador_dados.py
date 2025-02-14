@@ -57,3 +57,8 @@ class LanzarDado:
                 break
             else:
                 print('Introduce una opcion valida')
+
+
+#prueba
+jugar =LanzarDado()
+jugar.menu()

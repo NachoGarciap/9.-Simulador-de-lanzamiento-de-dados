@@ -7,10 +7,10 @@ juego = Farkle()
 
 while True:
     print('🎲🎲----- Juegos de dados -----🎲🎲')
-    print('1. Farkle, reglas del juego')
-    print('2. Jugar Farkle')
-    print('3. Lanzar dados')
-    print('4. Salir del juego')
+    print('1. Jugar Farkle')
+    print('2. Lanzar dados')
+    print('3. Mafia')
+    print('4. Salir')
 
     try:
         opcion = int(input("Elige un modo de juego: "))
@@ -19,7 +19,7 @@ while True:
         continue  # Vuelve a mostrar el menú
 
     if opcion == 1:
-        reglas.reglas_farkle()
+        juego.mostrar_menu()
     elif opcion == 2:
         juego.calcular_puntos()
     elif opcion == 3:
