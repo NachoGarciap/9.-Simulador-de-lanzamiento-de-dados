@@ -2,7 +2,6 @@
 
 Un conjunto de juegos de dados en Python, incluyendo Farkle, Mafia y Suma Exacta. Cada juego tiene reglas únicas y mecánicas basadas en el azar.
 
-# 📜 Juegos Disponibles
 
 # 🎲 1. Farkle
 
