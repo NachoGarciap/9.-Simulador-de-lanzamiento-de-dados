@@ -1,16 +1,23 @@
 from farkle import Farkle
+from lanzador_dados import LanzarDado
+from mafia import Mafia
 from reglas_juegos import Reglas_juego
+from suma_exacta import SumaExacta
 
 reglas = Reglas_juego()
-juego = Farkle()
+juego_farkle = Farkle()
+juego_lanzar_dados = LanzarDado()
+juego_mafia = Mafia()
+juego_suma_exacta = SumaExacta()
 
 
 while True:
     print('🎲🎲----- Juegos de dados -----🎲🎲')
-    print('1. Jugar Farkle')
-    print('2. Lanzar dados')
+    print('1. Farkle')
+    print('2. Lanzar Dados')
     print('3. Mafia')
-    print('4. Salir')
+    print('4. Suma Exacta')
+    print('5. Salir')
 
     try:
         opcion = int(input("Elige un modo de juego: "))
@@ -19,12 +26,14 @@ while True:
         continue  # Vuelve a mostrar el menú
 
     if opcion == 1:
-        juego.mostrar_menu()
+        juego_farkle.mostrar_menu()
     elif opcion == 2:
-        juego.calcular_puntos()
+        juego_lanzar_dados.mostrar_menu()
     elif opcion == 3:
-        pass
+        juego_mafia.mostrar_menu()
     elif opcion == 4:
+        juego_suma_exacta.mostrar_menu()
+    elif opcion == 5:
         print('Saliendo del juego...')
         break
     else:

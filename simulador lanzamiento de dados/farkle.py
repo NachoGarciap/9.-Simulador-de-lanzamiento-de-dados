@@ -7,7 +7,6 @@ from reglas_juegos import Reglas_juego
 class Farkle:
 
     def __init__(self):
-        print('🎲----- Bienvenidos al juego Farkle -----🎲')
         self.dado = [1, 2, 3, 4, 5, 6]
         self.max_puntuacion = 1000
         # self.puntos_totales = 0
@@ -16,10 +15,11 @@ class Farkle:
         self.puntos_jugador2 = 0
         # Turnos de los jugadores turno 1 = jugador 1
         self.turno = 1
+        self.reglas = Reglas_juego()
 
     def mostrar_menu(self):
         while True:
-            print('🎲----- Farkle -----🎲')
+            print('🎲----- Bienvenidos al juego Farkle -----🎲')
             print('1. Reglas')
             print('2. Jugar')
             print('3. Salir')
@@ -28,11 +28,11 @@ class Farkle:
                 opcion = int(input("Elige un modo de juego: "))
             except ValueError:
                 print('Introduce una opcion valida, por favor.')
-                continue #asi vuelve a iniciar el try hasta que la opcion sea correcta
+                continue  # asi vuelve a iniciar el try hasta que la opcion sea correcta
 
             if opcion == 1:
                 print('----- Recordatorio de las reglas y los puntos! -----')
-                reglas.reglas_farkle()
+                self.reglas.reglas_farkle()
             elif opcion == 2:
                 print('----- Empieza la partida! -----')
                 self.jugar()
@@ -136,12 +136,3 @@ class Farkle:
                 print(
                     f"\nGracias por jugar. Puntuaciones finales:\nJugador 1: {self.puntos_jugador1} puntos\nJugador 2: {self.puntos_jugador2} puntos")
                 break
-
-
-
-# Prueba
-jugar = Farkle()
-reglas = Reglas_juego()
-
-# Muestra el menu antes de empezar el juego
-jugar.mostrar_menu()

@@ -4,7 +4,6 @@ import random
 class LanzarDado:
 
     def __init__(self):
-        print('----- Lanzador de dados -----')
         # Diferentes dados
         self.dados = {
             'd6': [1, 2, 3, 4, 5, 6],
@@ -25,7 +24,7 @@ class LanzarDado:
         else:
             print(f"El dado {tipo_dado} no está disponible.")
 
-    def menu(self):
+    def mostrar_menu(self):
         while True:
             print('-*-*- Elige un dado: -*-*-')
             print('| 1. Dado de 6 caras:  |')
@@ -59,6 +58,3 @@ class LanzarDado:
                 print('Introduce una opcion valida')
 
 
-#prueba
-jugar =LanzarDado()
-jugar.menu()
