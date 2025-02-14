@@ -47,3 +47,18 @@ Un juego de precisión donde los jugadores deben alcanzar exactamente 15 puntos 
   - Si la suma es mayor de 15, el jugador pierde su turno.
   - Si la suma es menor de 15, el jugador suma esos puntos a su total.
   - El primero en alcanzar 30 puntos o más gana.
+
+# 🎲 4. Dados disponibles
+El programa permite lanzar los siguientes tipos de dados:
+
+🎲 D6 (6 caras)
+
+🎲 D8 (8 caras)
+
+🎲 D10 (10 caras)
+
+🎲 D12 (12 caras)
+
+🎲 D20 (20 caras)
+
+Cada dado devuelve un número aleatorio dentro de su rango.
